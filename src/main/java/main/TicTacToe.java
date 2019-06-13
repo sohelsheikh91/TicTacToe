@@ -17,9 +17,98 @@ public static int[][] ticbox;
 		
 		
 		//write your code here !!!
+		int icount=0,jcount=0;
+		for(int j =0; j<3;j++) {
+			for(int i= 0;i<3;i++) {
+				if(tic[i][j]==1) {
+					
+					icount++;
+				}
+				else if(tic[i][j]==2) {
+									
+					jcount++;
+				}
+				if(icount==3)
+					return 1;
+				if(jcount==3)
+					return 2;
+				
+			}
+			icount =0;
+			jcount=0;
+		}
+		icount =0;
+		jcount=0;
+		for(int i =0; i<3;i++) {
+			for(int j= 0;j<3;j++) {
+				if(tic[i][j]==1) {
+					
+					icount++;
+				}
+				else if(tic[i][j]==2) {
+									
+					jcount++;
+				}
+				if(icount==3)
+					return 1;
+				if(jcount==3)
+					return 2;
+				
+			}
+			icount =0;
+			jcount=0;
+		}
+		icount =0;
+		jcount=0;
+		//diagonals
 		
-		
-		
+		for(int i =0; i<3;i++) {
+			for(int j= 0;j<3;j++) {
+				if(tic[i][j]==1) {
+					
+					icount++;
+				}
+				else if(tic[i][j]==2) {
+									
+					jcount++;
+				}
+				i++;
+				if(icount==3)
+					return 1;
+				if(jcount==3)
+					return 2;
+				System.out.println(icount);
+				
+				
+			}
+			icount =0;
+			jcount=0;
+		}
+		icount =0;
+		jcount=0;
+		//revDiagonal
+		for(int i =0; i<3;i++) {
+			for(int j= 3-1;j>=0;j--) {
+				if(tic[i][j]==1) {
+					
+					icount++;
+				}
+				else if(tic[i][j]==2) {
+									
+					jcount++;
+				}
+				i++;
+				if(icount==3)
+					return 1;
+				if(jcount==3)
+					return 2;
+				
+			}
+			icount =0;
+			jcount=0;
+		}
+		icount =0;
+		jcount=0;
 		return 0;
 		
 	}
@@ -34,13 +123,17 @@ public static int[][] ticbox;
 	}
 	public static boolean validate(int a1,int a2,int [][] tic) {
 		//check if a1 is between 0 & 3
+		
 		//check if a2 is between 0 & 3
 		//check if the selected box is empty ie, already not marked by other player
 		//if all checks passed return true.
 		
 		
 		//Write your code here !!!
-		
+		if(a1>=0 && a1<=2 && a2>=0 && a2<=2 && tic[a1][a2]==0) {
+			
+			return true;
+		}
 		
 		return false;
 	}
